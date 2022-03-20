@@ -1,0 +1,27 @@
+# Solution1:
+
+def twoNumberSum(array, targetSum):
+	currentPtr = 0
+    for num in array:
+		diff = targetSum - num
+		if diff in array[currentPtr+1:]:
+			return [num, diff]
+		currentPtr += 1
+	return []
+
+
+# Solution2:
+
+def twoNumberSum(array, targetSum):
+    array.sort()
+	start = 0
+	end = len(array) - 1
+	while start < end:
+		currentSum = array[start] + array[end]
+		if currentSum == targetSum:
+			return [array[start], array[end]]
+		elif currentSum < targetSum:
+			start += 1
+		elif currentSum > targetSum:
+			end -= 1
+	return []
