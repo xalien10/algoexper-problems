@@ -1,0 +1,18 @@
+# Solution 1:
+# O(n) time| O(n) space
+
+def sortedSquaredArray(array):
+    start = 0
+    end = len(array) - 1
+    squaredSquares = [0 for _ in range(end + 1)]
+
+    for idx in reversed(range(end + 1)):
+        smallerValue = array[start]
+        largerValue = array[end]
+        if abs(smallerValue) > abs(largerValue):
+            squaredSquares[idx] = smallerValue * smallerValue
+            start += 1
+        else:
+            squaredSquares[idx] = largerValue * largerValue
+            end -= 1
+    return squaredSquares
