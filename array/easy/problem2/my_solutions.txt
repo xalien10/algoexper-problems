@@ -1,0 +1,13 @@
+# Solution1:
+
+def isValidSubsequence(array, sequence):
+    ptr = 0
+    found = []
+    sequence_max_index = len(sequence) - 1
+    for item in array:
+        if item == sequence[ptr]:
+            found.append(item)
+            ptr += 1
+        if ptr > sequence_max_index:
+            break
+    return found == sequence
